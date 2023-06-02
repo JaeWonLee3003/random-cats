@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import type { CSSProperties } from "styled-components";
 
 export const Container = styled.div`
 display:flex;
@@ -28,9 +29,9 @@ transition: 0.2s;
 }
 `;
 
-export const Image = styled.img`
+export const Image = styled.img<{objectFit?: CSSProperties['objectFit']}>`
 width:100%;
 height:100%;
-object-fit: cover;
+${({objectFit}) => objectFit && 'object-fit: ${objectFit};'}
 `;
 
